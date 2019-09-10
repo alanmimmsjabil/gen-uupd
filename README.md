@@ -4,7 +4,7 @@ unit to comply with CA AB1906/SB-327.
 
 You can use this by 
 ```
-./gen-unit-password.py [ n-chars ]
+python3 gen-unit-password.py [ n-chars ]
 ```
 If the _n-chars_ parameter is left off the default is 16.
 
@@ -16,6 +16,6 @@ multiple of four.
 
 For example:
 ```
-$ ./gen-unit-password.py 20
+$ python3 gen-unit-password.py 20
 Password: dggd-tqy2-cmxm-42ah-e3g1
 ```
