@@ -1,24 +1,22 @@
 #!/usr/bin/env python3
-from __future__ import print_function
 import sys
-
-if (sys.version_info > (3, 0)):
-    import secrets
-    RND = secrets
-else:
-    import random
-    RND = random
-
 import re
 import string
+import secrets
 
 if len(sys.argv) != 2:
-    n = 16
+    n = 12
 else:
     n = int(sys.argv[1])
 
-alphabet = 'abcdefghijmnpqrstuvwxyz' + string.digits
-password = ''.join(RND.choice(alphabet) for i in range(n))
+# In case it is hard to distinguish lowercase from uppercase, we may
+# wish to use only lowercase or only uppercase. For now, I'm using
+# both but eliminating as many ambiguous characters from alphabet as
+# possible (e.g., "O" vs "0", "I" vs "l").
+#alphabet = 'abcdefghijmnpqrstuvwxyz0123456789'
+#alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ0123456789'
+alphabet = 'abcdefghijmnpqrstuvwxyzABCDEFGHJMNPQRSTUVWXYZ0123456789'
+password = ''.join(secrets.choice(alphabet) for i in range(n))
 
 password = re.sub(r'(....)', r'\1-', password)
 password = re.sub(r'-$', '', password)
