@@ -15,7 +15,7 @@ else:
 # possible (e.g., "O" vs "0", "I" vs "l").
 #alphabet = 'abcdefghijmnpqrstuvwxyz0123456789'
 #alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ0123456789'
-alphabet = 'abcdefghijmnpqrstuvwxyzABCDEFGHJMNPQRSTUVWXYZ0123456789'
+alphabet = 'abcdefghijmnpqrstuvwxyzABCDEFGHJLMNPQRSTUVWXYZ0123456789'
 password = ''.join(secrets.choice(alphabet) for i in range(n))
 
 password = re.sub(r'(....)', r'\1-', password)
